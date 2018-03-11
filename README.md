@@ -1,0 +1,2 @@
+# ChatExperimentTool
+匿名聊天室是否可得知對方性別的實驗所需的聊天室
