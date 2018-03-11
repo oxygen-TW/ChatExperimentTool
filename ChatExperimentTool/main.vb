@@ -44,6 +44,9 @@ Public Class Main
 
         'Call Listen(Int(Config(1)))
         Call Start(Config(0), Config(2))
+
+        Survey.Show()
+        Me.Close()
     End Sub
 
     Private Sub SentButton_Click(sender As Object, e As EventArgs) Handles SentButton.Click
