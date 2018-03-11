@@ -36,13 +36,24 @@ Public Class Main
             MsgBox(item)
         Next
 
+        '定義受試者ID
         ObjectID = Config(4)
+
+        '清空檔案
+        CleanFileText(ObjectID)
+
         'Call Listen(Int(Config(1)))
         Call Start(Config(0), Config(2))
     End Sub
 
     Private Sub SentButton_Click(sender As Object, e As EventArgs) Handles SentButton.Click
         Sent(Config(0), Config(2), SentTextBox.Text)
+    End Sub
+
+    Private Sub SentTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles SentTextBox.KeyDown
+        If e.KeyCode = Keys.Return Then
+            Sent(Config(0), Config(2), SentTextBox.Text)
+        End If
     End Sub
 
     Private Sub Main_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing

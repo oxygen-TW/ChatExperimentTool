@@ -29,24 +29,29 @@ Partial Class Main
         '
         'ChatBox
         '
-        Me.ChatBox.Location = New System.Drawing.Point(50, 23)
+        Me.ChatBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ChatBox.AutoWordSelection = True
+        Me.ChatBox.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.ChatBox.Location = New System.Drawing.Point(12, 21)
         Me.ChatBox.Name = "ChatBox"
-        Me.ChatBox.Size = New System.Drawing.Size(398, 183)
+        Me.ChatBox.Size = New System.Drawing.Size(491, 229)
         Me.ChatBox.TabIndex = 0
         Me.ChatBox.Text = ""
         '
         'SentTextBox
         '
-        Me.SentTextBox.Location = New System.Drawing.Point(50, 226)
+        Me.SentTextBox.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.SentTextBox.Location = New System.Drawing.Point(12, 267)
         Me.SentTextBox.Name = "SentTextBox"
-        Me.SentTextBox.Size = New System.Drawing.Size(398, 22)
+        Me.SentTextBox.Size = New System.Drawing.Size(398, 29)
         Me.SentTextBox.TabIndex = 1
         '
         'SentButton
         '
-        Me.SentButton.Location = New System.Drawing.Point(373, 254)
+        Me.SentButton.Location = New System.Drawing.Point(416, 267)
         Me.SentButton.Name = "SentButton"
-        Me.SentButton.Size = New System.Drawing.Size(75, 23)
+        Me.SentButton.Size = New System.Drawing.Size(87, 29)
         Me.SentButton.TabIndex = 2
         Me.SentButton.Text = "Sent"
         Me.SentButton.UseVisualStyleBackColor = True
@@ -60,7 +65,7 @@ Partial Class Main
         Me.Controls.Add(Me.SentTextBox)
         Me.Controls.Add(Me.ChatBox)
         Me.Name = "Main"
-        Me.Text = "main"
+        Me.Text = "ChatExperimentTool"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
