@@ -72,6 +72,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="common.vb" />
     <Compile Include="Log.vb" />
     <Compile Include="main.Designer.vb">
       <DependentUpon>main.vb</DependentUpon>
@@ -94,7 +95,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Survey.vb" />
+    <Compile Include="Survey.Designer.vb">
+      <DependentUpon>Survey.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Survey.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="main.resx">
@@ -105,6 +111,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Survey.resx">
+      <DependentUpon>Survey.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
