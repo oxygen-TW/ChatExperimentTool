@@ -25,6 +25,7 @@ Partial Class Main
         Me.ChatBox = New System.Windows.Forms.RichTextBox()
         Me.SentTextBox = New System.Windows.Forms.TextBox()
         Me.SentButton = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ChatBox
@@ -33,7 +34,7 @@ Partial Class Main
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ChatBox.AutoWordSelection = True
         Me.ChatBox.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.ChatBox.Location = New System.Drawing.Point(12, 21)
+        Me.ChatBox.Location = New System.Drawing.Point(12, 32)
         Me.ChatBox.Name = "ChatBox"
         Me.ChatBox.Size = New System.Drawing.Size(491, 229)
         Me.ChatBox.TabIndex = 0
@@ -56,16 +57,28 @@ Partial Class Main
         Me.SentButton.Text = "Sent"
         Me.SentButton.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("微軟正黑體", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Green
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(164, 17)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "和與你配對的朋友聊聊天吧"
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(515, 308)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.SentButton)
         Me.Controls.Add(Me.SentTextBox)
         Me.Controls.Add(Me.ChatBox)
         Me.Name = "Main"
-        Me.Text = "ChatExperimentTool"
+        Me.Text = "ChatExperimentTool /  Program designer 30719  / Ver. 1.0"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -74,4 +87,5 @@ Partial Class Main
     Friend WithEvents ChatBox As RichTextBox
     Friend WithEvents SentTextBox As TextBox
     Friend WithEvents SentButton As Button
+    Friend WithEvents Label1 As Label
 End Class
