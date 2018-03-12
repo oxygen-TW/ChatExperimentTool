@@ -2,6 +2,8 @@
 /*
 DB NAME = ChatExperiment
 TABLE NAME = result
+USER = ChatExperimentUser
+PASSWORD = 
 */
     //取得IP
     function GetIPAddress(){
@@ -17,20 +19,26 @@ TABLE NAME = result
 
     //API驗證
     $key = $_GET['key'];
-    if($key != "KEY")
+    if($key != "ChatExperimentTool")
         exit("Authentication Failed");
 
     //取得參數
     $objectID = $_GET['objectID'];
     $testobjectID = $_GET['testobjectID'];
-    $sex = $_GET['sex'];
+    $sexuality = $_GET['sexuality'];
     $reason = $_GET['reason'];
+	 $exchange = $_GET['exchange'];
+	 $contact = $_GET['contact'];
+	 $message = $_GET['message'];
     $ip = "'".GetIPAddress()."'";
     /*echo $objectID;
     echo $testobjectID;
 	 echo $sex;
 	 echo $reason;
-	 echo $ip;*/
+	 echo $ip;
+	 echo $exchange;
+	 echo $contact;
+	 echo $message;*/
     //echo $detail;
 
     //連結資料庫認證
@@ -42,7 +50,7 @@ TABLE NAME = result
     //echo 'ok\r\n';
     
     //選擇資料庫
-    $db = mysql_select_db("ChatExperiment");
+    $db = mysql_select_db("KEYt");
     if(!$db){
         die('db error\r\n');
     }
@@ -51,8 +59,9 @@ TABLE NAME = result
     
     //進行寫入
     mysql_query("SET NAMES 'utf8'");
-    mysql_query("INSERT INTO `ChatExperiment`.`result` (`id`, `time`, `odjectID`, `TestobjectID`, `sex`, `reason`, `ip`) VALUES (NULL, CURRENT_TIMESTAMP,$objectID,$testobjectID,$sex,$reason,$ip)") or die(mysql_error());
-echo mysql_error();
+    //mysql_query("INSERT INTO `ChatExperiment`.`result` (`id`, `ip`, `time`, `odjectID`, `TestobjectID`, `sexuality`, `reason`, `exchange`, `contact`, `message`) VALUES (NULL,$ip, CURRENT_TIMESTAMP,$objectID,$testobjectID,$sexuality,$reason,$exchange,$contact,$message)") or die(mysql_error());
+    mysql_query("INSERT INTO `ChatExperiment`.`result` (`id`, `ip`, `time`, `odjectID`, `TestobjectID`, `sexuality`, `reason`, `exchange`, `contact`, `message`) VALUES (NULL,$ip, CURRENT_TIMESTAMP,$objectID,$testobjectID,$sexuality,$reason,$exchange,$contact,$message)") or die(mysql_error());
+
     //echo "Write OK\r\n";
     //關閉資料庫
     mysql_close($link);
@@ -60,5 +69,5 @@ echo mysql_error();
 ?>
 /*  
     oxygen studio ChatExperiment Server 端程式
-    2017/11/29
+    2018/03/12
 */

@@ -6,9 +6,9 @@
           LogFilePath, Now().ToString + " " + Text, True)
     End Sub
 
-    Sub UploadLogToServer()
+    Public Function ReadAllLog()
 
-    End Sub
+    End Function
 
     Sub CleanFileText(ByVal ObjectID)
         Dim LogFilePath As String = ObjectID + ".txt"

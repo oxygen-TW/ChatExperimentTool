@@ -42,11 +42,13 @@ Public Class Main
         '清空檔案
         CleanFileText(ObjectID)
 
+        'Console.WriteLine(Config(3))
+
         'Call Listen(Int(Config(1)))
         Call Start(Config(0), Config(2))
 
         Survey.Show()
-        Me.Close()
+        Me.Hide()
     End Sub
 
     Private Sub SentButton_Click(sender As Object, e As EventArgs) Handles SentButton.Click

@@ -28,6 +28,10 @@ Partial Class Survey
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ReasonTextBox = New System.Windows.Forms.RichTextBox()
         Me.Submit = New System.Windows.Forms.Button()
+        Me.exchangeYES = New System.Windows.Forms.Button()
+        Me.exchangeNO = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.contactBox = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Button_female
@@ -64,7 +68,7 @@ Partial Class Survey
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(21, 148)
+        Me.Label2.Location = New System.Drawing.Point(21, 133)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(249, 20)
         Me.Label2.TabIndex = 3
@@ -73,7 +77,7 @@ Partial Class Survey
         'ReasonTextBox
         '
         Me.ReasonTextBox.Font = New System.Drawing.Font("微軟正黑體", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.ReasonTextBox.Location = New System.Drawing.Point(25, 196)
+        Me.ReasonTextBox.Location = New System.Drawing.Point(25, 165)
         Me.ReasonTextBox.Name = "ReasonTextBox"
         Me.ReasonTextBox.Size = New System.Drawing.Size(333, 88)
         Me.ReasonTextBox.TabIndex = 4
@@ -81,18 +85,57 @@ Partial Class Survey
         '
         'Submit
         '
-        Me.Submit.Location = New System.Drawing.Point(283, 302)
+        Me.Submit.Location = New System.Drawing.Point(283, 380)
         Me.Submit.Name = "Submit"
         Me.Submit.Size = New System.Drawing.Size(75, 23)
         Me.Submit.TabIndex = 5
         Me.Submit.Text = "提交"
         Me.Submit.UseVisualStyleBackColor = True
         '
+        'exchangeYES
+        '
+        Me.exchangeYES.Location = New System.Drawing.Point(36, 307)
+        Me.exchangeYES.Name = "exchangeYES"
+        Me.exchangeYES.Size = New System.Drawing.Size(75, 23)
+        Me.exchangeYES.TabIndex = 6
+        Me.exchangeYES.Text = "好"
+        Me.exchangeYES.UseVisualStyleBackColor = True
+        '
+        'exchangeNO
+        '
+        Me.exchangeNO.Location = New System.Drawing.Point(183, 307)
+        Me.exchangeNO.Name = "exchangeNO"
+        Me.exchangeNO.Size = New System.Drawing.Size(75, 23)
+        Me.exchangeNO.TabIndex = 7
+        Me.exchangeNO.Text = "不要"
+        Me.exchangeNO.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(23, 269)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(166, 24)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "是否願意和對方交換聯絡資訊?" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "如果願意請填寫聯絡方式"
+        '
+        'contactBox
+        '
+        Me.contactBox.Enabled = False
+        Me.contactBox.Location = New System.Drawing.Point(36, 357)
+        Me.contactBox.Name = "contactBox"
+        Me.contactBox.Size = New System.Drawing.Size(222, 22)
+        Me.contactBox.TabIndex = 9
+        '
         'Survey
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(370, 415)
+        Me.Controls.Add(Me.contactBox)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.exchangeNO)
+        Me.Controls.Add(Me.exchangeYES)
         Me.Controls.Add(Me.Submit)
         Me.Controls.Add(Me.ReasonTextBox)
         Me.Controls.Add(Me.Label2)
@@ -112,4 +155,8 @@ Partial Class Survey
     Friend WithEvents Label2 As Label
     Friend WithEvents ReasonTextBox As RichTextBox
     Friend WithEvents Submit As Button
+    Friend WithEvents exchangeYES As Button
+    Friend WithEvents exchangeNO As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents contactBox As TextBox
 End Class
