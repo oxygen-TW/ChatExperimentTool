@@ -22,10 +22,14 @@ Partial Class Main
     '請勿使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.ChatBox = New System.Windows.Forms.RichTextBox()
         Me.SentTextBox = New System.Windows.Forms.TextBox()
         Me.SentButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.StartButton = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ChatBox
@@ -42,6 +46,7 @@ Partial Class Main
         '
         'SentTextBox
         '
+        Me.SentTextBox.Enabled = False
         Me.SentTextBox.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.SentTextBox.Location = New System.Drawing.Point(12, 267)
         Me.SentTextBox.Name = "SentTextBox"
@@ -50,6 +55,7 @@ Partial Class Main
         '
         'SentButton
         '
+        Me.SentButton.Enabled = False
         Me.SentButton.Location = New System.Drawing.Point(416, 267)
         Me.SentButton.Name = "SentButton"
         Me.SentButton.Size = New System.Drawing.Size(87, 29)
@@ -68,11 +74,35 @@ Partial Class Main
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "和與你配對的朋友聊聊天吧"
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
+        'StartButton
+        '
+        Me.StartButton.Location = New System.Drawing.Point(428, 7)
+        Me.StartButton.Name = "StartButton"
+        Me.StartButton.Size = New System.Drawing.Size(75, 19)
+        Me.StartButton.TabIndex = 4
+        Me.StartButton.Text = "start"
+        Me.StartButton.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(348, 12)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(62, 12)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Debug Only"
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(515, 308)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.StartButton)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.SentButton)
         Me.Controls.Add(Me.SentTextBox)
@@ -88,4 +118,8 @@ Partial Class Main
     Friend WithEvents SentTextBox As TextBox
     Friend WithEvents SentButton As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents StartButton As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
 End Class

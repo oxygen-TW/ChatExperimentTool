@@ -7,6 +7,8 @@ Public Class Main
 
     Public Config As New List(Of String)
     Dim ObjectID As String = Nothing
+    Dim Counter As Integer = 0
+    Dim Count_limit = 0
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim ConfigFilePath As String = "config.ini"
@@ -32,12 +34,15 @@ Public Class Main
         End Using
 
         'Debug Only
-        For Each item As String In Config
-            MsgBox(item)
-        Next
+        'For Each item As String In Config
+        '    MsgBox(item)
+        'Next
 
         '定義受試者ID
         ObjectID = Config(4)
+
+        '取得聊天次數限制
+        Count_limit = Int(Config(6))
 
         '清空檔案
         CleanFileText(ObjectID)
@@ -47,8 +52,6 @@ Public Class Main
         'Call Listen(Int(Config(1)))
         Call Start(Config(0), Config(2))
 
-        Survey.Show()
-        Me.Hide()
     End Sub
 
     Private Sub SentButton_Click(sender As Object, e As EventArgs) Handles SentButton.Click
@@ -85,6 +88,8 @@ Public Class Main
             Dim Str As String = Encoding.Default.GetString(ByteData)
             ChatBox.Text += Str + NL
 
+            '計算對話次數
+            Counter += 1
             '將對話紀錄寫入記錄檔
             WriteToLog(Str & NL, ObjectID)
         Loop
@@ -104,9 +109,20 @@ Public Class Main
 
         UdpClient2.Close()
         ChatBox.Text += sent & NL
+
+        '計算對話次數
+        Counter += 1
+        Console.WriteLine(Counter)
         '將對話紀錄寫入記錄檔
         WriteToLog(sent & NL, ObjectID)
         SentTextBox.Text = Nothing
+
+        '檢查對話次數
+        If Counter > Count_limit Then
+            Call CloseSentFunction()
+            MessageBox.Show("實驗即將完成，我們將開啟一個表單，請您回答問題", "實驗即將完成", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            Survey.Show()
+        End If
     End Sub
 
     Sub Start(ByVal IP As String, ByVal RemotePort As Integer)
@@ -115,6 +131,27 @@ Public Class Main
         Thread1.Start()
 
         'Send Online Singal
-        Sent(Config(0), Config(2), "Online Singal")
+        Sent(Config(0), Config(2), "Online Singal from " + ObjectID)
+    End Sub
+
+    Private Sub StartButton_Click(sender As Object, e As EventArgs) Handles StartButton.Click
+        SentTextBox.Enabled = True
+        SentButton.Enabled = True
+        StartButton.Enabled = False
+        'Call Timer_init()
+    End Sub
+
+    Sub Timer_init()
+        Timer1.Interval = 1000 ' 將時間間隔設為1秒 
+        Timer1.Enabled = True '計時器動停止
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Label3.Text = Timer1.ToString
+    End Sub
+
+    Sub CloseSentFunction()
+        SentTextBox.Enabled = False
+        SentButton.Enabled = False
     End Sub
 End Class
