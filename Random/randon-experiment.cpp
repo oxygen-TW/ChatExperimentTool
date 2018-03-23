@@ -4,13 +4,14 @@
 #include <vector>
 #include <algorithm>
 
+#define people 80
 using namespace std;
 
 int main()
 {
     vector<int> seat = {};
 
-    for(int i=0;i<100;i++)
+    for(int i=0;i<people;i++)
         seat.push_back(i + 1);
 
     //建立隨機設備
@@ -25,7 +26,7 @@ int main()
     fp.open("Seat.txt",ios::out);
     fp<<"ID,Seat"<<endl;
 
-    for(int i=0;i<100;i++){
+    for(int i=0;i<people;i++){
         fp<<i+1<<","<<seat[i]<<endl;
     }
 
