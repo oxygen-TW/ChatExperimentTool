@@ -37,9 +37,11 @@ Partial Class Main
         Me.ChatBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ChatBox.AutoWordSelection = True
+        Me.ChatBox.EnableAutoDragDrop = True
         Me.ChatBox.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.ChatBox.Location = New System.Drawing.Point(12, 32)
         Me.ChatBox.Name = "ChatBox"
+        Me.ChatBox.ReadOnly = True
         Me.ChatBox.Size = New System.Drawing.Size(491, 229)
         Me.ChatBox.TabIndex = 0
         Me.ChatBox.Text = ""
@@ -76,7 +78,7 @@ Partial Class Main
         '
         'Timer1
         '
-        Me.Timer1.Interval = 1000
+        Me.Timer1.Interval = 3000000
         '
         'StartButton
         '
@@ -108,7 +110,7 @@ Partial Class Main
         Me.Controls.Add(Me.SentTextBox)
         Me.Controls.Add(Me.ChatBox)
         Me.Name = "Main"
-        Me.Text = "ChatExperimentTool /  Program designer 30719  / Ver. 1.0"
+        Me.Text = "ChatExperimentTool /  Program designer 30719  / Ver. 1.1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

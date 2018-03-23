@@ -54,7 +54,7 @@ Public Class Survey
         End If
 
         '檢查是否作答完成
-        If SexAns = Nothing Or ReasonTextBox.Text = Nothing Or Not IsContactPass Or Contact = Nothing Then
+        If SexAns = Nothing Or ReasonTextBox.Text = Nothing Or Not IsContactPass Then
             MessageBox.Show("作答還未完成喔!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
@@ -67,9 +67,10 @@ Public Class Survey
         Me.UseWaitCursor = False
 
         If result <> "OK" Then
-            MessageBox.Show("debug:資料庫錯誤，請通知實驗人員!", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("debug:資料庫錯誤，請通知實驗人員!" + vbCrLf + result.ToString, "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             MessageBox.Show("實驗完成，十分感謝你的參與!", "完成!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            Submit.Enabled = False
         End If
 
 

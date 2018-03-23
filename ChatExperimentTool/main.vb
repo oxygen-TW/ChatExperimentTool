@@ -9,6 +9,7 @@ Public Class Main
     Dim ObjectID As String = Nothing
     Dim Counter As Integer = 0
     Dim Count_limit = 0
+    Dim Time_limit = False
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim ConfigFilePath As String = "config.ini"
@@ -55,11 +56,13 @@ Public Class Main
     End Sub
 
     Private Sub SentButton_Click(sender As Object, e As EventArgs) Handles SentButton.Click
-        Sent(Config(0), Config(2), SentTextBox.Text)
+        If SentTextBox.Text <> "" Then
+            Sent(Config(0), Config(2), SentTextBox.Text)
+        End If
     End Sub
 
     Private Sub SentTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles SentTextBox.KeyDown
-        If e.KeyCode = Keys.Return Then
+        If e.KeyCode = Keys.Return And SentTextBox.Text <> "" Then
             Sent(Config(0), Config(2), SentTextBox.Text)
         End If
     End Sub
@@ -86,7 +89,8 @@ Public Class Main
         Do While True
             Dim ByteData() As Byte = UdpClient1.Receive(EndPoint)
             Dim Str As String = Encoding.Default.GetString(ByteData)
-            ChatBox.Text += Str + NL
+            ChatBox.AppendText(Str + NL)
+            Call AutoScrollBar()
 
             '計算對話次數
             Counter += 1
@@ -108,8 +112,8 @@ Public Class Main
         'End If
 
         UdpClient2.Close()
-        ChatBox.Text += sent & NL
-
+        ChatBox.AppendText(sent & NL)
+        Call AutoScrollBar()
         '計算對話次數
         Counter += 1
         Console.WriteLine(Counter)
@@ -118,7 +122,7 @@ Public Class Main
         SentTextBox.Text = Nothing
 
         '檢查對話次數
-        If Counter > Count_limit Then
+        If Counter > Count_limit And Time_limit Then
             Call CloseSentFunction()
             MessageBox.Show("實驗即將完成，我們將開啟一個表單，請您回答問題", "實驗即將完成", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
             Survey.Show()
@@ -138,20 +142,25 @@ Public Class Main
         SentTextBox.Enabled = True
         SentButton.Enabled = True
         StartButton.Enabled = False
+
+        Timer1.Start()
         'Call Timer_init()
     End Sub
 
-    Sub Timer_init()
-        Timer1.Interval = 1000 ' 將時間間隔設為1秒 
-        Timer1.Enabled = True '計時器動停止
-    End Sub
-
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Label3.Text = Timer1.ToString
+        Label3.Text = "time's up"
+        Timer1.Stop()
+        Time_limit = True
     End Sub
 
     Sub CloseSentFunction()
         SentTextBox.Enabled = False
         SentButton.Enabled = False
+    End Sub
+
+    Public Sub AutoScrollBar()
+        ChatBox.SelectionStart = ChatBox.Text.Length
+        ChatBox.ScrollToCaret()
+        ChatBox.Refresh()
     End Sub
 End Class
