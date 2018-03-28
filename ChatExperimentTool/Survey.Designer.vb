@@ -33,6 +33,12 @@ Partial Class Survey
         Me.Label3 = New System.Windows.Forms.Label()
         Me.contactBox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button_female
@@ -58,7 +64,7 @@ Partial Class Survey
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(21, 20)
+        Me.Label1.Location = New System.Drawing.Point(21, 25)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(337, 20)
         Me.Label1.TabIndex = 2
@@ -69,7 +75,7 @@ Partial Class Survey
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(21, 122)
+        Me.Label2.Location = New System.Drawing.Point(12, 125)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(249, 20)
         Me.Label2.TabIndex = 3
@@ -79,15 +85,15 @@ Partial Class Survey
         '
         Me.ReasonTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ReasonTextBox.Font = New System.Drawing.Font("微軟正黑體", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.ReasonTextBox.Location = New System.Drawing.Point(25, 145)
+        Me.ReasonTextBox.Location = New System.Drawing.Point(24, 248)
         Me.ReasonTextBox.Name = "ReasonTextBox"
-        Me.ReasonTextBox.Size = New System.Drawing.Size(333, 103)
+        Me.ReasonTextBox.Size = New System.Drawing.Size(333, 61)
         Me.ReasonTextBox.TabIndex = 4
         Me.ReasonTextBox.Text = ""
         '
         'Submit
         '
-        Me.Submit.Location = New System.Drawing.Point(252, 391)
+        Me.Submit.Location = New System.Drawing.Point(252, 452)
         Me.Submit.Name = "Submit"
         Me.Submit.Size = New System.Drawing.Size(106, 39)
         Me.Submit.TabIndex = 5
@@ -96,7 +102,7 @@ Partial Class Survey
         '
         'exchangeYES
         '
-        Me.exchangeYES.Location = New System.Drawing.Point(25, 303)
+        Me.exchangeYES.Location = New System.Drawing.Point(25, 364)
         Me.exchangeYES.Name = "exchangeYES"
         Me.exchangeYES.Size = New System.Drawing.Size(151, 40)
         Me.exchangeYES.TabIndex = 6
@@ -105,7 +111,7 @@ Partial Class Survey
         '
         'exchangeNO
         '
-        Me.exchangeNO.Location = New System.Drawing.Point(207, 303)
+        Me.exchangeNO.Location = New System.Drawing.Point(207, 364)
         Me.exchangeNO.Name = "exchangeNO"
         Me.exchangeNO.Size = New System.Drawing.Size(151, 40)
         Me.exchangeNO.TabIndex = 7
@@ -117,7 +123,7 @@ Partial Class Survey
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(21, 260)
+        Me.Label3.Location = New System.Drawing.Point(21, 321)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(225, 40)
         Me.Label3.TabIndex = 8
@@ -126,7 +132,7 @@ Partial Class Survey
         'contactBox
         '
         Me.contactBox.Enabled = False
-        Me.contactBox.Location = New System.Drawing.Point(24, 401)
+        Me.contactBox.Location = New System.Drawing.Point(24, 462)
         Me.contactBox.Name = "contactBox"
         Me.contactBox.Size = New System.Drawing.Size(222, 22)
         Me.contactBox.TabIndex = 9
@@ -136,17 +142,83 @@ Partial Class Survey
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("微軟正黑體", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(21, 358)
+        Me.Label4.Location = New System.Drawing.Point(21, 419)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(158, 40)
+        Me.Label4.Size = New System.Drawing.Size(229, 40)
         Me.Label4.TabIndex = 10
-        Me.Label4.Text = "聯絡資料 (方式/帳號)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "例: Line/apple1234" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label4.Text = "聯絡資料 (班級座號/方式/帳號)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "例: 13001/Line/apple1234" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(25, 157)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(48, 16)
+        Me.CheckBox1.TabIndex = 11
+        Me.CheckBox1.Text = "語氣"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(24, 180)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(48, 16)
+        Me.CheckBox2.TabIndex = 12
+        Me.CheckBox2.Text = "話題"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Location = New System.Drawing.Point(24, 203)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(48, 16)
+        Me.CheckBox3.TabIndex = 13
+        Me.CheckBox3.Text = "用詞"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
+        'CheckBox4
+        '
+        Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.Location = New System.Drawing.Point(190, 157)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(72, 16)
+        Me.CheckBox4.TabIndex = 14
+        Me.CheckBox4.Text = "打字速度"
+        Me.CheckBox4.UseVisualStyleBackColor = True
+        '
+        'CheckBox5
+        '
+        Me.CheckBox5.AutoSize = True
+        Me.CheckBox5.Location = New System.Drawing.Point(190, 180)
+        Me.CheckBox5.Name = "CheckBox5"
+        Me.CheckBox5.Size = New System.Drawing.Size(60, 16)
+        Me.CheckBox5.TabIndex = 15
+        Me.CheckBox5.Text = "錯字率"
+        Me.CheckBox5.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("微軟正黑體", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Label5.Location = New System.Drawing.Point(21, 228)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(34, 17)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "其他"
         '
         'Survey
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(370, 456)
+        Me.ClientSize = New System.Drawing.Size(370, 506)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.CheckBox5)
+        Me.Controls.Add(Me.CheckBox4)
+        Me.Controls.Add(Me.CheckBox3)
+        Me.Controls.Add(Me.CheckBox2)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.contactBox)
         Me.Controls.Add(Me.Label3)
@@ -176,4 +248,10 @@ Partial Class Survey
     Friend WithEvents Label3 As Label
     Friend WithEvents contactBox As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents CheckBox3 As CheckBox
+    Friend WithEvents CheckBox4 As CheckBox
+    Friend WithEvents CheckBox5 As CheckBox
+    Friend WithEvents Label5 As Label
 End Class

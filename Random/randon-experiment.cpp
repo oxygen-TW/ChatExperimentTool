@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 
-#define people 80
+#define people 40
 using namespace std;
 
 int main()

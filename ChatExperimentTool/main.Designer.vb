@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Main
     Inherits System.Windows.Forms.Form
 
     'Form 覆寫 Dispose 以清除元件清單。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Main
     '注意: 以下為 Windows Form 設計工具所需的程序
     '可以使用 Windows Form 設計工具進行修改。
     '請勿使用程式碼編輯器進行修改。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ChatBox = New System.Windows.Forms.RichTextBox()
@@ -29,7 +29,7 @@ Partial Class Main
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.StartButton = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TimerShow = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ChatBox
@@ -78,7 +78,7 @@ Partial Class Main
         '
         'Timer1
         '
-        Me.Timer1.Interval = 3000000
+        Me.Timer1.Interval = 1000
         '
         'StartButton
         '
@@ -89,28 +89,28 @@ Partial Class Main
         Me.StartButton.Text = "start"
         Me.StartButton.UseVisualStyleBackColor = True
         '
-        'Label3
+        'TimerShow
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(348, 12)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(62, 12)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Debug Only"
+        Me.TimerShow.AutoSize = True
+        Me.TimerShow.Location = New System.Drawing.Point(348, 12)
+        Me.TimerShow.Name = "TimerShow"
+        Me.TimerShow.Size = New System.Drawing.Size(32, 12)
+        Me.TimerShow.TabIndex = 5
+        Me.TimerShow.Text = "Time:"
         '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(515, 308)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.TimerShow)
         Me.Controls.Add(Me.StartButton)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.SentButton)
         Me.Controls.Add(Me.SentTextBox)
         Me.Controls.Add(Me.ChatBox)
         Me.Name = "Main"
-        Me.Text = "ChatExperimentTool /  Program designer 30719  / Ver. 1.1"
+        Me.Text = "ChatExperimentTool /  Program designer 30719  / Ver. 1.2"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -123,5 +123,5 @@ Partial Class Main
     Friend WithEvents Timer1 As Timer
     Friend WithEvents StartButton As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents TimerShow As Label
 End Class

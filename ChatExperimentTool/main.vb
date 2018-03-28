@@ -10,29 +10,35 @@ Public Class Main
     Dim Counter As Integer = 0
     Dim Count_limit = 0
     Dim Time_limit = False
+    Private Time_count = 300
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim ConfigFilePath As String = "config.ini"
-        Using MyReader As New FileIO.TextFieldParser(
-                          ConfigFilePath)
-            MyReader.TextFieldType = FileIO.FieldType.Delimited
-            MyReader.SetDelimiters(";")
-            Dim currentRow As String()
-            While Not MyReader.EndOfData
-                Try
-                    currentRow = MyReader.ReadFields()
-                    Dim currentField As String
-                    For Each currentField In currentRow
 
-                        'Read Config File
-                        Config.Add(currentField)
-                    Next
-                Catch ex As FileIO.MalformedLineException
-                    MsgBox("Line " & ex.Message &
-        "is not valid and will be skipped.")
-                End Try
-            End While
-        End Using
+        Try
+            Using MyReader As New FileIO.TextFieldParser(
+                          ConfigFilePath)
+                MyReader.TextFieldType = FileIO.FieldType.Delimited
+                MyReader.SetDelimiters(";")
+                Dim currentRow As String()
+                While Not MyReader.EndOfData
+                    Try
+                        currentRow = MyReader.ReadFields()
+                        Dim currentField As String
+                        For Each currentField In currentRow
+
+                            'Read Config File
+                            Config.Add(currentField)
+                        Next
+                    Catch ex As FileIO.MalformedLineException
+                        MsgBox("Line " & ex.Message &
+            "is not valid and will be skipped.")
+                    End Try
+                End While
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("debug:組態檔錯誤，請通知實驗人員!", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
         'Debug Only
         'For Each item As String In Config
@@ -45,6 +51,9 @@ Public Class Main
         '取得聊天次數限制
         Count_limit = Int(Config(6))
 
+        '取得時間限制
+        Time_count = Int(Config(7))
+
         '清空檔案
         CleanFileText(ObjectID)
 
@@ -52,6 +61,9 @@ Public Class Main
 
         'Call Listen(Int(Config(1)))
         Call Start(Config(0), Config(2))
+
+        '顯示實驗說明
+        MessageBox.Show($"感謝您參與本次實驗{vbNewLine}本實驗目的為想要得知匿名聊天與性別上的關聯{vbNewLine}請在實驗過程中""不要直接或間接""告知對方您的姓名、性別、學號、班級座號等能識別出彼此身分的言論{vbNewLine}非常感謝您的配合！", "你好", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
 
     End Sub
 
@@ -148,9 +160,13 @@ Public Class Main
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Label3.Text = "time's up"
-        Timer1.Stop()
-        Time_limit = True
+        TimerShow.Text = Time_count.ToString
+        Time_count -= 1
+
+        If Time_count <= 0 Then
+            Time_limit = True
+            TimerShow.Text = "Time's up!"
+        End If
     End Sub
 
     Sub CloseSentFunction()
